@@ -80,9 +80,7 @@ class PropertyHolder:
             if dest.startswith("@dispvm:"):
                 dest = dest[len("@dispvm:") :]
             else:
-                dest = getattr(self.app, "default_dispvm", None)
-                if dest:
-                    dest = dest.name
+                dest = "dom0"
         # have the actual implementation at Qubes() instance
         return self.app.qubesd_call(dest, method, arg, payload,
             payload_stream)
